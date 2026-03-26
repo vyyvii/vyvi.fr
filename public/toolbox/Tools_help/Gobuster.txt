@@ -1,0 +1,10 @@
+---> GOBUSTER
+
+--> gobuster dir -u http://[ip:adress or URL]/ -w [path of the wordlist] -x [extension without "."] 
+
+-> PATH IN THM OF WORDLIST : /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt
+-> EXTENSION : -x php,sh,txt,cgi,html,js,css,py
+-> EXAMPLE : gobuster dir -u http://[ip:adress or URL]/ -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -x php,sh,txt,cgi,html,js,css,py
+
+
+--> gobuster dir -u http://$ip/ -w /home/vyvi/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt

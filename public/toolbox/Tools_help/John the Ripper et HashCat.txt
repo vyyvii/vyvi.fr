@@ -1,0 +1,11 @@
+---> JOHN THE RIPPER
+
+-> john --wordlist=../rockyou.txt --format:<format> <hash.txt>
+
+
+---> Hashcat
+
+-> Fichier avec le hash ou hash:salt
+Le salt est un élément rajouter à la fin d'une string pour rendre le hash incohérent avec une rainbow table. Sans le salt, impossible de déhash un password.
+-> hashcat --force -m 1710 -a 0 hash.txt ../rockyou.txt 
+https://hashcat.net/wiki/doku.php?id=example_hashes

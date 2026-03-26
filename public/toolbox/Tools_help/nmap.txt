@@ -1,0 +1,8 @@
+---> NMAP
+
+-> export ip=<ip> (pourra être appellé avec $ip)
+--> nmap -A -oN nmap-$ip.out -p- $ip -vv
+--> nmap -sV -sC --script vuln -oN nmap-$ip.out $ip -p- -vv 
+--> nmap -sV -sC -oN nmap-$ip.out $ip -p- -vv 
+--> nmap -p <samba port, 139 or 445> --script=smb-enum-shares.nse,smb-enum-users.nse $ip
+-> cat nmap-$ip.out | grep open

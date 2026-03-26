@@ -1,0 +1,226 @@
+
+/* Début du code css de la page analyseur */
+
+body {
+    margin: 20px;
+    padding: 0;
+    background-color: #282c34;
+    color: #fff;
+    font-family: 'Karla', sans-serif;
+    font-size: 120%;
+}
+
+pre {
+    max-height: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+h1 {
+    text-align: center;
+    color: rgb(230, 255, 118);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 250%;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+label, input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"]{
+    width: 100%;
+    background-color: rgb(68, 73, 82);
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    font-size: 100%;
+    margin: 10px auto;
+    padding: 5px 5px;
+}
+
+input[type="file"] {
+    width: 100%;
+    background-color: #282c34;
+}
+
+#stats {
+    margin: 20px 0;
+}
+
+#chartContainer {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#messagesPerHourChart, #messageChart {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+#wordCloud {
+    display: block;
+    margin: 0 auto;
+}
+
+#wordInfo {
+    position: absolute;
+    background-color: #494949;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+    pointer-events: none;
+    display: none;
+    z-index: 10;
+}
+
+/* Les boutons simples */
+#how { top: 65px; }
+#python { top: 165px; }
+#doc { top: 115px; }
+
+#how, #python, #doc {position: absolute;}
+#downloadReport, #downloadChart, #analyze, #resetButton {display: block;}
+
+#how, #doc, #python, #downloadReport, #downloadChart, #analyze, #resetButton {
+    margin: 10px auto;
+    background-color: #494949;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-size: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-color 0.3s ease;
+    font-family: 'Karla', sans-serif;
+}
+#how:hover, #doc:hover, #python:hover, #downloadReport:hover, #downloadChart:hover, #analyze:hover, #resetButton:hover {
+    color: #007bff;
+}
+#downloadReport.clicked, #downloadChart.clicked, #analyze.clicked, #resetButton.clicked, #how.clicked, #doc.clicked {
+    box-shadow: none;
+    transform: none;
+    background-color: #007bff;
+}
+
+/* Les boutons */
+#terminal {
+    top: 20px;
+    color: #fff;
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 1);
+}
+#simple {
+    top: 100px;
+    color: rgb(114, 180, 255);
+    box-shadow: -5px -5px 10px rgb(114, 180, 255);
+}
+#hacking {
+    top: 178px;
+    color: rgb(255, 135, 135);
+    box-shadow: -5px -5px 10px rgb(255, 135, 135);
+}
+
+#terminal, #simple, #hacking {
+    background-color: #888;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    font-family: 'Karla', sans-serif;
+}
+
+#terminal:hover {
+    box-shadow: 5px 5px 0px rgb(255, 255, 255);
+}
+#simple:hover {
+    box-shadow: 5px 5px 0px rgba(114, 180, 255,1);
+}
+#hacking:hover {
+    box-shadow: 5px 5px 0px rgb(255, 135, 135);
+}
+
+#terminal.clicked, #simple.clicked, #hacking.clicked {
+    box-shadow: none;
+    transform: none;
+    background-color: #6d6d6d
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: rgba(114, 180, 255,1);
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #6d6d6d;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 1px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 85%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Warning */
+.warning {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #f84d4d;
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 105%;
+    left: 50%;
+}
+
+.warning .warningtext {
+    visibility: hidden;
+    width: 500px;
+    background-color: #6d6d6d;
+    color: #f84d4d;
+    text-align: center;
+    border-radius: 5px;
+    padding: 1px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -250px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.warning:hover .warningtext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Fin du code css de la page analyseur */

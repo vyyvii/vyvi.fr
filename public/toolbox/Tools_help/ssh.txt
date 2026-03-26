@@ -1,0 +1,7 @@
+---> SSH
+
+-> ssh <user>@$ip
+
+-> yes
+
+-> password

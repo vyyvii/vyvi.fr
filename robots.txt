@@ -1,0 +1,11 @@
+# Fichier robots.txt pour vyvi.fr
+
+User-agent: *
+
+Disallow: /mail
+Disallow: /panel
+Disallow: /public
+Disallow: /static
+
+# Indique l'emplacement du sitemap pour les moteurs de recherche
+Sitemap: https://vyvi.fr/sitemap.xml

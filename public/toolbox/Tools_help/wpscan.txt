@@ -1,0 +1,9 @@
+---> WPSCAN
+-> Pour énumérer efficacement un site wordpress.
+
+
+--> Pour trouver un username :
+wpscan --url http://$ip/wordpress -e
+
+--> Pour trouver un mot de passe
+wpscan --url http://$ip/wordpress -U admin -P ../rockyou.txt

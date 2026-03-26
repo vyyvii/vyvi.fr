@@ -1,0 +1,17 @@
+-- Mission name --
+Walkthrough - Victor
+ALL MUST BE IN ENGLISH
+
+IP : 
+
+nmap A all port :
+
+
+nmap samba :
+
+
+nmap -sC -sV vuln all port :
+
+enum4linux : 
+
+

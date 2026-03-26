@@ -1,0 +1,111 @@
+
+<!-- Début du code html de la page terminal -->
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+	<head>
+
+		<meta charset="utf-8" />
+		<title>VYVI - vyvi.fr</title>
+		<link rel="icon" href="public/ICO/favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" media="all" href="static/Terminal/terminal.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name=keywords content=vyvi,terminal,linux,Victor,Defauchy,victor,defauchy>
+		<meta name=description content="vyvi.fr - Site internet de Victor Defauchy.">
+
+		<meta content="vyvi.fr - Site internet de Victor Defauchy." name=description>
+		<meta content="vyvi.fr - Site internet de Victor Defauchy." property=og:description>
+		<meta content="vyvi.fr - Site internet de Victor Defauchy." property=og:title>
+		<meta content="vyvi.fr - Site internet de Victor Defauchy." property=og:site_name>
+    	<meta content=website property=og:type>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Rubik:wght@500&family=Karla:wght@500&display=swap" rel="stylesheet">
+
+	</head>
+
+	<body>
+
+		<div id="terminal"></div>
+
+		<button id="simple">Version simplifiée</button>
+		<button id="hacking">Hacking ToolBox</button>
+		<button id="analyseur">Analyseur de Conversation</button>
+
+		<script src="static/Terminal/terminal.js"></script>
+		<script>
+		var terminal = new Terminal('terminal', {}, {
+			execute: function(cmd, args) {
+				switch (cmd) {
+					case 'clear':
+						terminal.clear();
+						return '';
+					case 'help':
+					case 'h':
+					case '?':
+								return terminal.displayHelp();
+					case 'whoami':
+						return 'Une merveilleuse personne (guest)';
+					case 'hostname':
+						return 'vyvi le tout puissant';
+					case 'ifconfig':
+						return '1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000<br>link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00<br>inet 127.0.0.1/8 scope host lo<br>valid_lft forever preferred_lft forever<br>inet6 ::1/128 scope host<br>valid_lft forever preferred_lft forever';
+					case 'theme':
+						if (args && args[0]) {
+							if (args.length > 1) return 'Trop d arguments';
+							else if (args[0].match(/^interlaced|modern|white$/)) { terminal.setTheme(args[0]); return ''; }
+							else return 'Thème invalide ! (interlaced, modern, white)';
+						}
+						return terminal.getTheme();
+					case 'version':
+						return '2024.1';
+					case 'ls':
+						var directory = '.';
+						if (args && args.length > 0) {
+							if (args.length > 1) return "Trop d'arguments";
+							else directory = args[0];
+						}
+						return terminal.listDirectory(directory);
+					case 'll':
+						var directory = '.';
+						if (args && args.length > 0) {
+							if (args.length > 1) return "Trop d'arguments";
+							else directory = args[0];
+						}
+						return terminal.llistDirectory(directory);
+					case 'cd':
+						var directory = '/';
+						if (args && args.length > 0) {
+							if (args.length > 1) return "Trop d'arguments";
+							else directory = args[0];
+						}
+						return terminal.changeDirectory(directory);
+					case 'pwd':
+						return terminal.currentDirectory();
+					case 'cat':
+						if (!args || args.length <= 0) return 'Trop peu d\'arguments<br />Utilisation: cat &lt;fichier&gt;';
+						else if (args.length > 1) return 'Trop d\'arguments<br />Utilisation: cat &lt;fichier&gt;';
+						else return terminal.catFile(args[0]);
+					case 'open':
+						if (!args || args.length <= 0) return 'Trop peu d\'arguments<br />Utilisation: open &lt;lien&gt;';
+						else if (args.length > 1) return 'Trop d\'arguments<br />Utilisation: open &lt;lien&gt;';
+						else return terminal.openFile(args[0]);
+					case 'about':
+						return 'Projet personnel fait par Victor Defauchy, le site date mais entre temps je me suis amélioré en code promis !';
+					default:
+						return false;
+				};
+			}
+		});
+		</script>
+
+	</body>
+
+</html>
+
+<!-- Fin du code html de la page terminal -->

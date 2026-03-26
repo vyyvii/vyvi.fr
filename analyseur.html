@@ -1,0 +1,103 @@
+<!-- Début du code html de la page analyseur -->
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+    <head>
+
+            <meta charset="utf-8" />
+            <title>Analyse de Conversation - vyvi.fr</title>
+            <link rel="icon" href="public/ICO/favicon.ico" type="image/x-icon"/>
+
+            <meta name=keywords content=vyvi,Victor,Defauchy,victor,defauchy,analyseur,conversation,Analyseur,Conversation,WhatsApp>
+            <meta name=description content="vyvi.fr - Analyseur de conversation">
+
+            <meta content="vyvi.fr - Analyseur de conversation" name=description>
+            <meta content="vyvi.fr - Analyseur de conversation" property=og:description>
+            <meta content="vyvi.fr - Analyseur de conversation" property=og:title>
+            <meta content="vyvi.fr - Analyseur de conversation" property=og:site_name>
+            <meta content=website property=og:type>
+
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Karla:wght@500&display=swap" rel="stylesheet">
+            <link href="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/bootstrap-responsive.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="static/Analyseur/analyseur.css">
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
+    </head>
+
+    <body>
+
+        <button id="terminal">Version terminal</button>
+        <button id="simple">Version simplifiée</button>
+        <button id="hacking">Hacking ToolBox</button>
+
+        <button id="how">Comment faire ?</button>
+        <button id="doc">Documentation</button>
+        <button id="python">Python</button>
+
+        <h1>Analyse de Conversation</h1>
+        <p style="text-align: center;">L'analyseur de conversation analyse une conversation WhatsApp pour en sortir des statistiques.<br>Entrez les informations demandées et essayez !</p>
+        <p style="text-align: center;">Il est recommandé d'utiliser un PC ou une tablette !</p>
+        <p style="text-align: center;">Survolez les ? bleus pour plus d'informations.</p>
+        <br>
+        <form id="inputForm">
+
+            <label for="nom">Nom sur WhatsApp :
+                <span class="tooltip">?
+                    <span class="tooltiptext">Entrez le nom exact que vous avez sur WhatsApp</span>
+                </span>
+            </label>
+            <input type="text" id="nom" required>
+
+            <br>
+
+            <label for="exp">Nom du destinataire :
+                <span class="tooltip">?
+                    <span class="tooltiptext">Entrez le nom exact du destinataire</span>
+                </span>
+            </label>
+            <input type="text" id="exp" required>
+
+            <br>
+
+            <label for="fileInput">Télécharger le fichier de conversation :
+                <span class="tooltip">?
+                    <span class="tooltiptext">En cas de difficultés, cliquez sur "Comment faire ?" en haut à gauche. <br>Le fichier doit être au format ".txt".</span>
+                </span>
+            </label>
+            <input type="file" id="fileInput" accept=".txt" required>
+
+            <br>
+
+            <button id="analyze" type="submit">Analyser</button>
+            <button type="button" id="resetButton">Réinitialiser</button>
+
+        </form>
+
+        <div id="stats"></div>
+
+        <canvas id="messageChart" width="400" height="200"></canvas>
+        <canvas id="messagesPerHourChart" width="400" height="200"></canvas>
+        <canvas id="wordCloud" width="1500" height="500"></canvas>
+        <div id="wordInfo"></div>
+
+        <button id="downloadReport">Télécharger le rapport</button>
+        <button id="downloadChart">Télécharger les graphiques</button>
+
+        <span class="warning">!
+            <span class="warningtext">Pour lancer une nouvelle analyse, veuillez réinitialiser la page avant !</span>
+        </span>
+
+        <script src="static/Analyseur/analyseur.js"></script>
+
+    </body>
+
+</html>
+
+<!-- Fin du code html de la page analyseur -->

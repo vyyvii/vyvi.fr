@@ -1,0 +1,15 @@
+---> SMBCLIENT
+--> Pour l'énumération :
+nmap -sV -sC --script vuln $ip -p- -vv 
+-> Permet de voir la vulnérabilité associé s'il y en a une
+nmap -p <samba port, 139 or 445> --script=smb-enum-shares.nse,smb-enum-users.nse $ip
+-> Permet de voir les shares
+
+--> Voir les shares :
+smbclient -L \\$ip
+
+--> Il est recommandé d'utiliser :
+enum4linux $ip
+
+--> Se connecter à SMBCLIENT pour énumérer les dossiers
+smbclient \\\\$ip\\<share>
